@@ -1,9 +1,10 @@
 import requests
 import datetime
 import os
+from dotenv import load_dotenv
 
-# 発行されたトークンID
-ACCESS_TOKEN = os.environ.get("LINE_ACCESS_TOKEN")
+load_dotenv()
+ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN")
 
 headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
 
