@@ -2,8 +2,8 @@
 
 ```plantuml
 @startuml
-actor 死亡者 as human
-actor 観測者 as observer
+actor 対象者 as human
+actor オブサーバ as observer
 card 端末 as device
 interface 人感センサー as sensor
 node "Raspberry Pi" as raspy {
