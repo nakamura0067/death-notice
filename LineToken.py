@@ -2,12 +2,12 @@ import requests
 import datetime
 import os
 import sqlite3
-from dotenv import load_dotenv
+from dotenv import find_dotenv,load_dotenv
 
-load_dotenv()
+load_dotenv(find_dotenv())
 ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN")
 
-db_connect = sqlite3.connect('sqlite_test.db')
+db_connect = sqlite3.connect('/home/nakamura0067/workspace/death-notice/sqlite_test.db')
 db_curs = db_connect.cursor()
 
 dt_now = datetime.datetime.now() 
@@ -27,9 +27,10 @@ if human_sensor_list is None:
           headers=headers,
           data=data,
      )
-else:
-     sql = 'INSERT INTO human_sensor(high_date) values ("' + dt_now.strftime('%Y/%m/%d %H:%M') + '")'
-     db_curs.execute(sql)
+
+#else:
+#     sql = 'INSERT INTO human_sensor(high_date) values ("' + dt_now.strftime('%Y/%m/%d %H:%M') + '")'
+#     db_curs.execute(sql)
 
 db_connect.commit()
 db_connect.close()
