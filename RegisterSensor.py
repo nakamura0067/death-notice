@@ -27,10 +27,9 @@ if human_sensor_list is None:
           headers=headers,
           data=data,
      )
-
-#else:
-#     sql = 'INSERT INTO human_sensor(high_date) values ("' + dt_now.strftime('%Y/%m/%d %H:%M') + '")'
-#     db_curs.execute(sql)
+     # 死亡通知を連続で送らないよう、未来日のレコードを追加
+     sql = 'INSERT INTO human_sensor(high_date) values ("2999/12/31 23:59")'
+     db_curs.execute(sql)
 
 db_connect.commit()
 db_connect.close()
