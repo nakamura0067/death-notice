@@ -27,9 +27,10 @@ if human_sensor_list is None:
           headers=headers,
           data=data,
      )
-else:
-     sql = 'INSERT INTO human_sensor(high_date) values ("' + dt_now.strftime('%Y/%m/%d %H:%M') + '")'
-     db_curs.execute(sql)
+
+#else:
+#     sql = 'INSERT INTO human_sensor(high_date) values ("' + dt_now.strftime('%Y/%m/%d %H:%M') + '")'
+#     db_curs.execute(sql)
 
 db_connect.commit()
 db_connect.close()
